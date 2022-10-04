@@ -39,6 +39,8 @@ ACPlayer::ACPlayer()
 	SpringArm->SocketOffset = FVector(0, 60, 0);
 	// SpringArm 의 시작 지점의 y 위치를 60으로 설정합니다.
 
+	AutoPossessPlayer = EAutoReceiveInput::Player0;
+	// 해당 캐릭터가 플레이어라는 것을 설정합니다.
 }
 
 void ACPlayer::BeginPlay()

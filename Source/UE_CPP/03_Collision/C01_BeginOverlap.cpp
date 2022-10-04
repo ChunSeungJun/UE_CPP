@@ -49,7 +49,8 @@ void AC01_BeginOverlap::OnBeginOverlap(AActor* OverlappedActor, AActor* OtherAct
 	// GetName : 월드아웃라이너의 이름을 가져옵니다.
 
 
-	TextRender->Text = FText::FromString(str);
+	TextRender->SetText(FText::FromString(str));
+	// TextRender 가 그리고 있는 텍스트를 변경합니다.
 
 }
 
@@ -59,7 +60,7 @@ void AC01_BeginOverlap::OnEndOverlap(AActor* OverlappedActor, AActor* OtherActor
 	str.Append("Out : ");
 	str.Append(OtherActor->GetName());
 	
-	TextRender->Text = FText::FromString(str);
+	TextRender->SetText(FText::FromString(str));
 
 }
 
