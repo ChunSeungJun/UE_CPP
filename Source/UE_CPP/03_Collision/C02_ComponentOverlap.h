@@ -1,4 +1,3 @@
-
 #pragma once
 
 #include "CoreMinimal.h"
@@ -10,8 +9,7 @@ class UE_CPP_API AC02_ComponentOverlap : public AActor
 {
 	GENERATED_BODY()
 	
-
-private:
+private :
 	UPROPERTY(VisibleDefaultsOnly)
 		class USceneComponent* Root;
 
@@ -23,8 +21,6 @@ private:
 	
 	UPROPERTY(VisibleDefaultsOnly)
 		class UPointLightComponent* PointLight;
-
-
 
 public:	
 	AC02_ComponentOverlap();
@@ -40,11 +36,11 @@ private :
 			int32 OtherBodyIndex,
 			bool bFromSweep,
 			const FHitResult& SweepResult);
+
 	UFUNCTION()
 		void OnEndOverlap(UPrimitiveComponent* OverlappedComponent,
 			AActor* OtherActor,
 			UPrimitiveComponent* OtherComp,
 			int32 OtherBodyIndex);
-
 
 };

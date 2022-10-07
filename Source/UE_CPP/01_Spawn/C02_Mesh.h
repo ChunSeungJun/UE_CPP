@@ -1,4 +1,3 @@
-
 #pragma once
 
 #include "CoreMinimal.h"
@@ -11,15 +10,13 @@ class UE_CPP_API AC02_Mesh : public AActor
 	GENERATED_BODY()
 	
 private :
-	// VisibleDefaultsAnywher : 아키타입에서만 보여주고 편집이 불가능 합니다.
 	// Mesh : 형태
 	UPROPERTY(VisibleDefaultsOnly)
 		class UStaticMeshComponent* Mesh;
-	// UStaticMeshComponent : 해당 클래스에서 Mesh 기능을 추가할 수 있습니다.
+	// UStaticMeshComponent 
+	// 해당 클래스에서 Mesh 기능을 추가할 수 있습니다.
 
 	class UMaterialInstanceDynamic* Material;
-
-
 
 public:	
 	AC02_Mesh();
@@ -32,5 +29,5 @@ public:
 
 	// UFUNCTION : 에디터에서 관리할 함수라는 것을 명시하는 키워드
 	UFUNCTION()
-		void ChangeColor();
+	void ChangeColor();
 };

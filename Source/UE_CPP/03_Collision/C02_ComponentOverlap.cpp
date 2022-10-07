@@ -1,9 +1,8 @@
+#include "03_Collision/C02_ComponentOverlap.h"
 #include "Components/BoxComponent.h"
 #include "Components/TextRenderComponent.h"
-#include "03_Collision/C02_ComponentOverlap.h"
 #include "Components/PointLightComponent.h"
 #include "Kismet/KismetMathLibrary.h"
-#include "Kismet/KismetSystemLibrary.h"
 
 AC02_ComponentOverlap::AC02_ComponentOverlap()
 {
@@ -27,13 +26,8 @@ AC02_ComponentOverlap::AC02_ComponentOverlap()
 	TextRender->Text = FText::FromString(FString("C02_ComponentOverlap"));
 	TextRender->HorizontalAlignment = EHorizTextAligment::EHTA_Center;
 
-
-	
-
 	PointLight->SetLightColor(FLinearColor::Red);
 	// 포인트 라이트의 빛의 색상을 빨간색으로 설정합니다.
-
-
 }
 
 void AC02_ComponentOverlap::BeginPlay()
@@ -50,24 +44,17 @@ void AC02_ComponentOverlap::BeginPlay()
 void AC02_ComponentOverlap::OnBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
 	PointLight->SetVisibility(true);
-
-	// FLinearColor color;
-	// color.R = UKismetMathLibrary::RandomFloatInRange(0, 1);
-	// color.G = UKismetMathLibrary::RandomFloatInRange(0, 1);
-	// color.B = UKismetMathLibrary::RandomFloatInRange(0, 1);
-	// color.A = 1.0f;
-	// PointLight->SetLightColor(FLinearColor(color));
-
-
 }
 
 void AC02_ComponentOverlap::OnEndOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
 {
+	FLinearColor color;
+	color.R = UKismetMathLibrary::RandomFloatInRange(0, 1);
+	color.G = UKismetMathLibrary::RandomFloatInRange(0, 1);
+	color.B = UKismetMathLibrary::RandomFloatInRange(0, 1);
+	color.A = 1.0f;
+	PointLight->SetLightColor(color);
 	PointLight->SetVisibility(false);
-
-
-
 }
-
 
 

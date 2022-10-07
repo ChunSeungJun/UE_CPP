@@ -4,18 +4,18 @@
 
 void UPlayerAnim::NativeBeginPlay()
 {
-	Super::NativeBeginPlay();
+    Super::NativeBeginPlay();
 
-	Owner = fCast<ACharacter>(TryGetPawnOwner());
+    Owner = Cast<ACharacter>(TryGetPawnOwner());
 }
 
 void UPlayerAnim::NativeUpdateAnimation(float DelatSeconds)
 {
-	Super::NativeUpdateAnimation(DelatSeconds);
-	
-	if (!Owner) return;
+    Super::NativeUpdateAnimation(DelatSeconds);
 
-	Speed = Owner->GetVelocity().Size2D();
-	Direction = CalculateDirection(Owner->GetVelocity(), Owner->GetControlRotation());
+    if (!Owner) return;
 
+    // GetVelocity() : ¼Ó·Â
+    Speed = Owner->GetVelocity().Size2D();
+    Direction = CalculateDirection(Owner->GetVelocity(), Owner->GetControlRotation());
 }
